@@ -88,7 +88,9 @@ def main():
 
     if result:
         if "GET_TEXT" in result:
-            df = pd.read_csv(StringIO(result.get("GET_TEXT")), header=None)
+            # df = pd.read_csv(StringIO(result.get("GET_TEXT")), header=None)
+            df = pd.DataFrame(StringIO(result.get("GET_TEXT")))
+
             df.columns = ['slide_id']
 
             # logic
