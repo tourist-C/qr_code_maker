@@ -89,9 +89,20 @@ def main():
     if result:
         if "GET_TEXT" in result:
             # df = pd.read_csv(StringIO(result.get("GET_TEXT")), header=None)
-            df = pd.DataFrame(StringIO(result.get("GET_TEXT")))
+            # df = pd.DataFrame(StringIO(result.get("GET_TEXT")))
+
+
+            data = result.get("GET_TEXT").split("\n")
+            data = [i.rstrip() for i in data]
+            df = pd.DataFrame(data)
 
             df.columns = ['slide_id']
+
+            st.write()
+
+            # df['slide_id'] = df['slide_id'].apply(lambda x:x.replace("\n",""))
+            # st.write(df['slide_id'][0])
+            # st.write(df['slide_id'][0])
 
             # logic
             col1.write(f"Total number of slides: {len(df)}")
