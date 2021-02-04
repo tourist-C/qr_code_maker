@@ -49,7 +49,7 @@ def main():
 
     # col3
     col3.header("Step 3")
-    col3.subheader("Right click copy")
+    col3.subheader("Right Click & Copy")
 
     # config
     qr_size_sb = col2.slider("qr_size", 0, 100, 40)
