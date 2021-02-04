@@ -29,10 +29,10 @@ import pandas as pd
 
 def main():
 
-    st.set_page_config(page_title="Slide QR code generator", page_icon="icon.ico", layout='centered', initial_sidebar_state='auto')
+    st.set_page_config(page_title="Slide QR Code Generator", page_icon="icon.ico", layout='centered', initial_sidebar_state='auto')
     
     # layout
-    st.title('Slide QR code generator')
+    st.title('Slide QR Code Generator')
 
 
     # col1
@@ -61,11 +61,11 @@ def main():
         st.subheader("Set Configuration")
 
         # config
-        qr_size_sb = st.slider("qr_size", 0, 100, 40)
-        text_size_sb = st.slider("text_size", 0, 20, 8)
-        bg_size_sb = st.slider("bg_size", 0, 200, 100)
-        qr_pos_sb = st.slider("qr_pos", 0, 200, 50)
-        text_pos_sb = st.slider("text_pos", 0, 200, 50)
+        qr_size_sb = st.slider("QR code size", 0, 100, 40)
+        text_size_sb = st.slider("Label text height", 0, 20, 8)
+        bg_size_sb = st.slider("QR + label height", 0, 200, 100)
+        qr_pos_sb = st.slider("QR vertical position", 0, 200, 50)
+        text_pos_sb = st.slider("Label text position", 0, 200, 50)
 
         qr_size = qr_size_sb, qr_size_sb
         text_size = 200, text_size_sb
