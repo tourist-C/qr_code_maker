@@ -26,7 +26,7 @@ import pandas as pd
 #     df.columns = ['slide_id']
 #     return df
 
-copy_button = Button(label="Get Data")
+copy_button = Button(label="Paste")
 
 def main():
 
@@ -37,10 +37,14 @@ def main():
     # col1
     col1, col2, col3 = st.beta_columns(3)
     col1.header("Step 1")
+    col1.subheader("Paste Data")
+
 
 
     # col2 
     col2.header("Step 2")
+    col2.subheader("Set Configuration")
+
 
 
     # col3
@@ -48,11 +52,11 @@ def main():
     col3.subheader("Right click copy")
 
     # config
-    qr_size_sb = col1.slider("qr_size", 0, 100, 40)
-    text_size_sb = col1.slider("text_size", 0, 20, 8)
-    bg_size_sb = col1.slider("bg_size", 0, 200, 100)
-    qr_pos_sb = col1.slider("qr_pos", 0, 200, 50)
-    text_pos_sb = col1.slider("text_pos", 0, 200, 50)
+    qr_size_sb = col2.slider("qr_size", 0, 100, 40)
+    text_size_sb = col2.slider("text_size", 0, 20, 8)
+    bg_size_sb = col2.slider("bg_size", 0, 200, 100)
+    qr_pos_sb = col2.slider("qr_pos", 0, 200, 50)
+    text_pos_sb = col2.slider("text_pos", 0, 200, 50)
 
     qr_size = qr_size_sb, qr_size_sb
     text_size = 200, text_size_sb
