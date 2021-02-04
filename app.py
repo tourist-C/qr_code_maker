@@ -89,8 +89,8 @@ def main():
         df = pd.read_csv(StringIO(result.get("GET_TEXT")), header=None)
         df.columns = ['slide_id']
 
-        col2.write(f"Total number of slides: {len(df)}")
-        col2.write(df)
+        col1.write(f"Total number of slides: {len(df)}")
+        col1.write(df)
         l = list(df['slide_id'])
         output = engine.create_many_qr_codes(l, kwargs)
         col3.image(output)
