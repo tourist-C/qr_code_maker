@@ -1,5 +1,7 @@
-numpy==1.19.5
-streamlit==0.68.1
+bokeh==2.0.1
+streamlit==0.75.0
+streamlit_bokeh_events==0.1.2
 pandas==1.0.1
+numpy==1.19.5
 qrcode==6.1
 Pillow==8.1.0

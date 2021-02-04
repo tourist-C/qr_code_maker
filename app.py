@@ -5,22 +5,43 @@ import engine
 import base64
 from PIL import Image
 
-# @st.cache
-def load_data():
-    df = pd.read_clipboard(header=None)
-    df.columns = ['slide_id']
-    return df
-    
+import streamlit as st
+from bokeh.models.widgets import Button
+from bokeh.models import CustomJS
+from streamlit_bokeh_events import streamlit_bokeh_events
+from io import StringIO
+import pandas as pd
+
+
+
+
+
+
+
+
+
+# # @st.cache
+# def load_data():
+#     df = pd.read_clipboard(header=None)
+#     df.columns = ['slide_id']
+#     return df
+
+copy_button = Button(label="Get Data")
+
 def main():
+
     # layout
     st.title('QR code generator')
+
 
     # col1
     col1, col2, col3 = st.beta_columns(3)
     col1.header("Step 1")
 
+
     # col2 
     col2.header("Step 2")
+
 
     # col3
     col3.header("Step 3")
@@ -47,8 +68,23 @@ def main():
     )
 
     # logic
-    if col2.button("Paste slide list"):
-        df = load_data()
+
+    copy_button.js_on_event("button_click", CustomJS(code="""
+        navigator.clipboard.readText().then(text => document.dispatchEvent(new CustomEvent("GET_TEXT", {detail: text})))
+        """))
+
+    result = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXT",
+            key="get_text",
+            refresh_on_update=False,
+            override_height=75,
+            debounce_time=0)
+
+    if "GET_TEXT" in result:
+        df = pd.read_csv(StringIO(result.get("GET_TEXT")), header=None)
+        df.columns = ['slide_id']
+
         col2.write(f"Total number of slides: {len(df)}")
         col2.write(df)
         l = list(df['slide_id'])
