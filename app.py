@@ -84,16 +84,16 @@ def main():
             refresh_on_update=False,
             override_height=75,
             debounce_time=0)
+    if result:
+        if "GET_TEXT" in result:
+            df = pd.read_csv(StringIO(result.get("GET_TEXT")), header=None)
+            df.columns = ['slide_id']
 
-    if "GET_TEXT" in result:
-        df = pd.read_csv(StringIO(result.get("GET_TEXT")), header=None)
-        df.columns = ['slide_id']
-
-        col1.write(f"Total number of slides: {len(df)}")
-        col1.write(df)
-        l = list(df['slide_id'])
-        output = engine.create_many_qr_codes(l, kwargs)
-        col3.image(output)
+            col1.write(f"Total number of slides: {len(df)}")
+            col1.write(df)
+            l = list(df['slide_id'])
+            output = engine.create_many_qr_codes(l, kwargs)
+            col3.image(output)
 
 if __name__ == '__main__':
     main()
