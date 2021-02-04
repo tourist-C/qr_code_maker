@@ -29,9 +29,10 @@ import pandas as pd
 
 def main():
 
-
+    st.set_page_config(page_title="Slide QR code generator", page_icon="icon.ico", layout='centered', initial_sidebar_state='auto')
+    
     # layout
-    st.title('QR code generator')
+    st.title('Slide QR code generator')
 
 
     # col1
