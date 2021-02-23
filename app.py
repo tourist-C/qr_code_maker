@@ -61,14 +61,14 @@ def main():
         st.subheader("Set Configuration")
 
         # config
-        qr_size_sb = st.slider("QR code size", 0, 100, 40)
-        text_size_sb = st.slider("Label font size", 0, 20, 8)
-        bg_width = st.slider("QR + label width", 0, 200, 100)
-        bg_height = st.slider("QR + label height", 0, 200, 60)
-        qr_pos_x_sb = st.slider("QR horizontal position", 0, 100, 25)
-        qr_pos_y_sb = st.slider("QR vertical position", 0, 100, 10)
+        qr_size_sb = st.slider("QR code size", 0, 100, 90)
+        text_size_sb = st.slider("Label font size", 0, 20, 15)
+        bg_width = st.slider("QR + label width", 0, 200, 110)
+        bg_height = st.slider("QR + label height", 0, 200, 100)
+        qr_pos_x_sb = st.slider("QR horizontal position", 0, 100, 10)
+        qr_pos_y_sb = st.slider("QR vertical position", 0, 100, 0)
         text_pos_x_sb = st.slider("Label text horizontal position", 0, 100, 0)
-        text_pos_y_sb = st.slider("Label text vertical position", 0, 100, 50)
+        text_pos_y_sb = st.slider("Label text vertical position", 0, 100, 80)
 
 
         qr_size = qr_size_sb, qr_size_sb
